@@ -69,7 +69,7 @@ What if you needed to store some dialog:
 
 > "Wait," said Jo, "Do not go without me!"
 
-Given the number of `"` used for direct speech, and the lack of _interpolation_
+Given the number of `"` used for direct speech, and the lack of _interpolation_,
 it might be a wise choice to use a single-quote here.
 
 ```ruby
