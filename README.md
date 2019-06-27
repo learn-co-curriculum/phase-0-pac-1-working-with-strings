@@ -121,7 +121,7 @@ age = 5
 fact + age + tail #=> TypeError (no implicit conversion of Integer into String)
 ```
 
-Ruby is not sure whether you want to add like an `Integer` (stored in `tail`)
+Ruby is not sure whether you want to add like an `Integer` (stored in `age`)
 or add like `String`s! If you need to do this, you should use the `to_s` method
 on data.
 
