@@ -103,7 +103,7 @@ clan_name = "Karbitus"
 common_name = "Maris"
 
 # With +
-first_name + " " + clan_name + " " common_name #=> "Byronius Karbitus Maris"
+first_name + " " + clan_name + " " + common_name #=> "Byronius Karbitus Maris"
 
 # Or, with interpolation, like you already know
 "#{first_name} #{clan_name} #{common_name}" #=> "Byronius Karbitus Maris"
