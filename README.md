@@ -26,6 +26,10 @@ our understanding of programming in Ruby.
 
 We declare `String`s most often by putting letters in double-quotes:
 
+![String Declaration](https://curriculum-content.s3.amazonaws.com/programming-univbasics/working-with-string/Image_91_SyntaxDeclaration.png)
+
+Or, in Ruby:
+
 ```ruby
 greeting = "Hello, folks"
 ```
@@ -38,6 +42,10 @@ boundary or _limit_ around the that make up the `String`.
 ## Recognize How to Declare a `String` with Single-quotes
 
 We can also declare `String`s by putting _characters_ in single-quotes:
+
+![Single Quote String](https://curriculum-content.s3.amazonaws.com/programming-univbasics/working-with-string/Image_91B_SyntaxDeclaration.png)
+
+Or, in Ruby:
 
 ```ruby
 greeting = 'Hello, folks'
@@ -66,6 +74,11 @@ bark_count = 3
 double_q = "Byron barks #{bark_count} times" #=> "Byron barks 3 times"
 single_q = 'Byron barks #{bark_count} times' #=> "Byron barks #{bark_count} times"
 ```
+
+Here's a slightly more complex to help you remember:
+
+![Interpolation with arithmetic](https://curriculum-content.s3.amazonaws.com/programming-univbasics/working-with-string/Image_91C_SyntaxDeclaration.png)
+
 
 ## Explain How Different Quote Characters Allow Flexibility
 
