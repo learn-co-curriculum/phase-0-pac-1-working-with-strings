@@ -1,30 +1,27 @@
-# Working With String
+# Working With Strings
 
 ## Learning Goals
 
-* Recognize how to declare a `String` with double-quotes
-* Recognize how to declare a `String` with single-quotes
+* Recognize how to declare a `String` with double quotes
+* Recognize how to declare a `String` with single quotes
 * State the difference between single- and double-quoted `String`s
 * Define _interpolation_
 * Explain how different quote characters allow flexibility
-* Demonstrate escaping double-quotes in a `String`
+* Demonstrate escaping double quotes in a `String`
 * Join `String`s using `+`
 * Identify why `TypeError` happens when + `String` with `Integer`
 
 ## Introduction
 
 Thus far in programming as conversation, we've used numbers as data most of the
-time. We used numbers because they reach across language, culture, and time
-itself.  Occasionally we've tossed a `String` or a `Symbol` in for variety, but
-not often. But it's really helpful to have our expression return funny
-`String`s or things like that.
+time. Numbers are great because they reach across languages and cultures. But
+there are times when we need our programs to return information in the form of
+text. In this lesson we'll learn more about using text (i.e. `String`s) in our
+Ruby expressions.
 
-Let's learn how to format Ruby's _evaluations_ into `String`s that help ensure
-our understanding of programming in Ruby.
+## Recognize How to Declare a `String` with Double Quotes
 
-## Recognize How to Declare a `String` with Double-quotes
-
-We declare `String`s most often by putting letters in double-quotes:
+We declare `String`s most often by putting letters in double quotes:
 
 ![String Declaration](https://curriculum-content.s3.amazonaws.com/programming-univbasics/working-with-string/Image_91_SyntaxDeclaration.png)
 
@@ -36,12 +33,12 @@ greeting = "Hello, folks"
 
 The letters inside of a `String` are often called "characters."
 
-The pair of matching `"` are called "`String`-delimiters because they form a
-boundary or _limit_ around the that make up the `String`.
+The pair of matching `"`s are called "`String` delimiters" because they form a
+boundary or _limit_ around the characters that make up the `String`.
 
-## Recognize How to Declare a `String` with Single-quotes
+## Recognize How to Declare a `String` with Single Quotes
 
-We can also declare `String`s by putting _characters_ in single-quotes:
+We can also declare `String`s by putting the characters in single quotes:
 
 ![Single Quote String](https://curriculum-content.s3.amazonaws.com/programming-univbasics/working-with-string/Image_91B_SyntaxDeclaration.png)
 
@@ -53,15 +50,14 @@ greeting = 'Hello, folks'
 
 ## State the Difference Between Single- and Double-quoted `String`s
 
-The difference between single- and double-quoted `String`s is best seen when
-using a special power of the `String`: _interpolating_ data.
- 
+For the most part, single and double quotes can be used interchangeably in Ruby. However, there is one instance where you need to use double quotes: when you are _interpolating_ data into a `String`.
+
 ### Define _interpolation_
 
 When you use the _interpolation operator_ you take data from the programming
 language, convert it to a `String` and then place that `String` _inside_ of
 the `String` where the _interpolation operator_ appeared.
- 
+
 The _interpolation operator_ looks like this: `#{}`. When it appears in a
 double-quote-delimited `String`, the return value of the expression inside the
 operator is "plugged in" to the containing `String`.
@@ -75,10 +71,9 @@ double_q = "Byron barks #{bark_count} times" #=> "Byron barks 3 times"
 single_q = 'Byron barks #{bark_count} times' #=> "Byron barks #{bark_count} times"
 ```
 
-Here's a slightly more complex to help you remember:
+Here's a slightly more complex example to help you remember:
 
 ![Interpolation with arithmetic](https://curriculum-content.s3.amazonaws.com/programming-univbasics/working-with-string/Image_91C_SyntaxDeclaration.png)
-
 
 ## Explain How Different Quote Characters Allow Flexibility
 
@@ -96,28 +91,28 @@ Since `"` is the `String` delimiter, Ruby would get confused if we gave it this
 `String`. It would attempt to end the `String` right before the `W` as the two
 `"`s "delimit" the `String`.  Not what we wanted.
 
-It might be a wise choice to use a single-quote here.
+It might be a wise choice to use single quotes here.
 
 ```ruby
 little_woman_esque = '"Wait," said Jo, "Do not go without me!"'
 ```
 
 Because the opening delimiter of the `String` was `'`, Ruby will "close" the
-`String` at the next `'` &mdash; at the very end. Inside of the `'...'`, the
+`String` at the next `'` &mdash; at the very end. Inside of the single quotes, the
 `"` loses its meaning of "here's a `String`" and, instead, is just a plain
 literal,  letter-like character `"`.
 
 But oh my goodness, what if the speaker said `Don't` instead of `Do not`.  That
-would break our `String` _again_ as Ruby attempted to use `Don't`'s `'` as the
+would break our `String` _again_ as Ruby attempted to use the `'` inside `Don't` as the
 closing delimiter.
 
-What a mess.  Sometimes we need to say "Don't use this `'` or `"` as a `String`
+What a mess. Sometimes we need to say "Don't use this `'` or `"` as a `String`
 delimiter. To do this we need _escaping_.
 
-## Demonstrate Escaping Double-quotes in a `String`
+## Demonstrate Escaping Double Quotes in a `String`
 
 So, what are we to do when we need interpolation _but also_ have embedded
-double-quotes? We can "escape" the power of `"` to close a `String` by putting
+double quotes? We can "escape" the power of `"` to close a `String` by putting
 a `\` in front of it:
 
 ```ruby
@@ -127,8 +122,8 @@ little_woman_esque = "\"Wait,\" said #{character}, \"Do not go without me!\""
 
 Since the delimiting character is `"`, we _should_ close the `String`
 immediately before the `W`. ***BUT*** since there is a `\` immediately before
-the `"`, thus _escaping_ it, Ruby says "Oh you mean to try this as a character,
-not as a `String` delimiter, I'll find the next unescaped `"`."
+the second `"`, thus _escaping_ it, Ruby says "Oh you mean to try this as a character,
+not as a `String` delimiter. I'll find the next unescaped `"`."
 
 It doesn't find an unescaped `"` until the very end, just like we want.
 
@@ -162,7 +157,7 @@ full_name   #=> "Byronius Karbitus Maris"
 
 ## Identify Why TypeError Happens When `+` String with Integer
 
-Be careful, ***`+` only joins `Strings` with both sides are `String`***:
+Be careful, ***`+` only joins `Strings`! To work, both sides must be of type `String`***:
 
 ```ruby
 fact = "Byron is "
@@ -184,15 +179,15 @@ tail = " years old"
 age = 5
 
 fact + age.to_s + tail  #=> "Byron is 5 years old"
-"#{fact} #{age} #{tail} #=> "Byron is 5 years old"
+"#{fact} #{age} #{tail}" #=> "Byron is 5 years old"
 ```
 
 Most data types feature a _method_ called `.to_s` ("to `String`") which turns
-them into a `String`.  Once a non-`String` is converted to a `String`, it can
+them into a `String`. Once a non-`String` is converted to a `String`, it can
 be joined with `+` to another `String`.
 
 You might still be unclear on what a "method" is. You might remember the
-`.class` method we introduced when we were talking about type, earlier. For
+`.class` method we introduced when we were talking about type in an earlier lesson. For
 now, think of methods as "commands" you can ask values to do in Ruby.
 
 ## Conclusion
