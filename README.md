@@ -2,14 +2,10 @@
 
 ## Learning Goals
 
-* Recognize how to declare a `String` with double quotes
-* Recognize how to declare a `String` with single quotes
-* State the difference between single- and double-quoted `String`s
+* Recognize how to declare a `String`
 * Define _interpolation_
 * Explain how different quote characters allow flexibility
-* Demonstrate escaping double quotes in a `String`
 * Join `String`s using `+`
-* Identify why `TypeError` happens when + `String` with `Integer`
 
 ## Introduction
 
@@ -17,18 +13,14 @@ Thus far in programming as conversation, we've used numbers as data most of the
 time. Numbers are great because they reach across languages and cultures. But
 there are times when we need our programs to return information in the form of
 text. In this lesson we'll learn more about using text (i.e. `String`s) in our
-Ruby expressions.
+JavaScript expressions.
 
-## Recognize How to Declare a `String` with Double Quotes
+## Recognize How to Declare a `String`
 
-We declare `String`s most often by putting letters in double quotes:
+We declare `String`s most often by enclosing our text in double quotes:
 
-![String Declaration](https://curriculum-content.s3.amazonaws.com/programming-univbasics/working-with-string/Image_91_SyntaxDeclaration.png)
-
-Or, in Ruby:
-
-```ruby
-greeting = "Hello, folks"
+```js
+let greeting = "Hello, folks";
 ```
 
 The letters inside of a `String` are often called "characters."
@@ -36,162 +28,147 @@ The letters inside of a `String` are often called "characters."
 The pair of matching `"`s are called "`String` delimiters" because they form a
 boundary or _limit_ around the characters that make up the `String`.
 
-## Recognize How to Declare a `String` with Single Quotes
-
 We can also declare `String`s by putting the characters in single quotes:
 
-![Single Quote String](https://curriculum-content.s3.amazonaws.com/programming-univbasics/working-with-string/Image_91B_SyntaxDeclaration.png)
-
-Or, in Ruby:
-
-```ruby
-greeting = 'Hello, folks'
+```js
+let greeting = 'Hello, folks';
 ```
 
-## State the Difference Between Single- and Double-quoted `String`s
+or backticks:
 
-For the most part, single and double quotes can be used interchangeably in Ruby. However, there is one instance where you need to use double quotes: when you are _interpolating_ data into a `String`.
-
-### Define _interpolation_
-
-When you use the _interpolation operator_ you take data from the programming
-language, convert it to a `String` and then place that `String` _inside_ of
-the `String` where the _interpolation operator_ appeared.
-
-The _interpolation operator_ looks like this: `#{}`. When it appears in a
-double-quote-delimited `String`, the return value of the expression inside the
-operator is "plugged in" to the containing `String`.
-
-In a single-quoted `String` there is no interpolation possible. Ruby simply
-sees `#{}` as "hash-mark, left-curly brace, right-curly brace."
-
-```ruby
-bark_count = 3
-double_q = "Byron barks #{bark_count} times" #=> "Byron barks 3 times"
-single_q = 'Byron barks #{bark_count} times' #=> "Byron barks #{bark_count} times"
+```js
+let greeting = `Hello, folks`;
 ```
 
-Here's a slightly more complex example to help you remember:
+Single quotes and double quotes can be used interchangeably in JavaScript &mdash; they are treated the same. Using backticks to enclose a string, however, brings some additional capabilities. A string enclosed in backticks forms a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), which allows you to _interpolate_ data into the `String`.
 
-![Interpolation with arithmetic](https://curriculum-content.s3.amazonaws.com/programming-univbasics/working-with-string/Image_91C_SyntaxDeclaration.png)
+## Define _interpolation_
+
+String _interpolation_ is the process of injecting the value of an expression (often, but not necessarily, the _variable lookup expression_) into a `String`. You wrap the expression inside the _interpolation operator_ which lets JavaScript know that it should interpret the value of the expression, convert it to a `String` if necessary, and insert it into the containing `String` where the _interpolation operator_ appeared.
+
+The _interpolation operator_ looks like this: `${}`. When it appears in a backtick-delimited `String`, the return value of the expression inside the operator is "plugged in" to the containing `String`.
+
+In a single or double-quoted `String` there is no interpolation possible. JavaScript would not interpret the value inside the `${}`; it would instead create a literal string containing the operator and whatever expression is inside it.
+
+```js
+const barkCount = 3
+const backtick = `Byron barks ${barkCount} times` //=> "Byron barks 3 times"
+const singleQuote = 'Byron barks ${barkCount} times' //=> "Byron barks ${barkCount} times"
+const doubleQuote = "Byron barks ${barkCount} times" //=> "Byron barks ${barkCount} times"
+```
+
+The expression inside the `${}` does not need to be a variable lookup. Any expression, i.e., any statement that returns a value, can be used:
+
+```js
+const byron = `Byron is ${2+3} years old` //=> "Byron is 5 years old"
+```
+
+Here JavaScript knows to interpret the value inside the interpolation operator because the string is enclosed in backticks. It evaluates the expression (`2 + 3` yields the value `5`), turns the result into a string and inserts it in place.
 
 ## Explain How Different Quote Characters Allow Flexibility
 
-What if you needed to store some dialog as a `String`:
+What if you needed to store some _dialog_ as a `String`:
 
-In the book...
+In the book it would look like:
 
 > "Wait," said Jo, "Do not go without me!"
 
-As a `String` for Ruby...
+If we want to create a string containing this text, we might try wrapping the whole thing in quotes, like this:
 
 > ""Wait," said Jo, "Do not go without me!""
 
-Since `"` is the `String` delimiter, Ruby would get confused if we gave it this
-`String`. It would attempt to end the `String` right before the `W` as the two
-`"`s "delimit" the `String`.  Not what we wanted.
+However, because `"` is the `String` delimiter, JavaScript would get confused. It would attempt to end the `String` right before the `W` as the two `"`s "delimit" the `String`.  Not what we wanted.
 
-It might be a wise choice to use single quotes here.
+To fix this, we can use single quotes as our delimiter instead:
 
-```ruby
-little_woman_esque = '"Wait," said Jo, "Do not go without me!"'
+```js
+const littleWomanEsque = '"Wait," said Jo, "Do not go without me!"'
 ```
 
-Because the opening delimiter of the `String` was `'`, Ruby will "close" the
+Because the opening delimiter of the `String` was `'`, JavaScript will "close" the
 `String` at the next `'` &mdash; at the very end. Inside of the single quotes, the
 `"` loses its meaning of "here's a `String`" and, instead, is just a plain
 literal,  letter-like character `"`.
 
-But oh my goodness, what if the speaker said `Don't` instead of `Do not`.  That
-would break our `String` _again_ as Ruby attempted to use the `'` inside `Don't` as the
-closing delimiter.
+But oh my goodness, what if the speaker said `Don't` instead of `Do not`.  That would break our `String` _again_ as JavaScript attempted to use the `'` inside `Don't` as the closing delimiter.
 
-What a mess. Sometimes we need to say "Don't use this `'` or `"` as a `String`
-delimiter. To do this we need _escaping_.
+Sometimes we need to tell JavaScript "Don't use this `'` or `"` as a `String` delimiter. To do this we need _escaping_.
 
-## Demonstrate Escaping Double Quotes in a `String`
+We can "escape" the power of `"` or `'` to close a `String` by putting a `\` in front of it:
 
-So, what are we to do when we need interpolation _but also_ have embedded
-double quotes? We can "escape" the power of `"` to close a `String` by putting
-a `\` in front of it:
-
-```ruby
-character = "Amy"
-little_woman_esque = "\"Wait,\" said #{character}, \"Do not go without me!\""
+```js
+const littleWomanEsque = '"Wait," said Jo, "Don\'t go without me!"'
 ```
 
-Since the delimiting character is `"`, we _should_ close the `String`
-immediately before the `W`. ***BUT*** since there is a `\` immediately before
-the second `"`, thus _escaping_ it, Ruby says "Oh you mean to try this as a character,
-not as a `String` delimiter. I'll find the next unescaped `"`."
+Without the backslash, JavaScript would interpret the apostrophe inside `"Don't"` as the end of the string, and we'd end up with a mess. ***BUT*** since there is a `\` immediately before the second `'` (the apostrophe), thus _escaping_ it, JavaScript says "Oh you mean to use this as a character, not as a `String` delimiter. I'll find the next unescaped `'`."
 
-It doesn't find an unescaped `"` until the very end, just like we want.
-
-By the way, we could also change the word to `"Do not"` to `"Don't"` as well
-since `'` is not being used as a delimiter.
+It doesn't find an unescaped `'` until the very end, just like we want.
 
 ## Join `String`s using `+`
 
-Now here's an interesting use of the `+` operator! When placed between
-`String`s, it joins them and returns a ***new*** `String`.
+We already know that we can use `+` as an arithmetical operator to add two `Number`s together. But we can also use it as a `String` operator: when placed between two `String`s, it joins them and returns a ***new*** `String`.
 
-Try this out in IRB (or make up your own variation):
+You can use the REPL below to code along with this example and experiment.
 
-```ruby
-first_name = "Byronius"
-clan_name = "Karbitus"
-common_name = "Maris"
+<iframe height="400px" width="100%" src="https://repl.it/@LizBurton/JuvenileWorldlyJava?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-# With +
-full_name = first_name + " " + clan_name + " " + common_name #=> "Byronius Karbitus Maris"
+```js
+const firstName = "Byronius";
+const clanName = "Karbitus";
+const commonName = "Maris";
+let fullName;
 
-# Or, with interpolation
-full_name = "#{first_name} #{clan_name} #{common_name}" #=> "Byronius Karbitus Maris"
+// With +
+fullName = firstName + " " + clanName + " " + commonName; //=> "Byronius Karbitus Maris"
 
-# Keep in mind it returns a _new_ String; therefore:
-first_name  #=> "Byronius"
-clan_name   #=> "Karbitus"
-common_name #=> "Maris"
-full_name   #=> "Byronius Karbitus Maris"
+// Or, with interpolation
+fullName = `${firstName} ${clanName} ${commonName}`; //=> "Byronius Karbitus Maris"
+
+// Keep in mind it returns a _new_ String; therefore:
+firstName;  //=> "Byronius"
+clanName;   //=> "Karbitus"
+commonName; //=> "Maris"
+fullName;   //=> "Byronius Karbitus Maris"
 ```
 
-## Identify Why TypeError Happens When `+` String with Integer
+### A Warning About Mixing Data Types
 
-Be careful, ***`+` only joins `Strings`! To work, both sides must be of type `String`***:
+Recall from the lesson on data types that JavaScript, unlike some other programming languages, will bend over backwards to return a value instead of throwing a type error. This means that the following will work in JavaScript:
 
-```ruby
-fact = "Byron is "
-tail = " years old"
-age = 5
+```js
+const fact = "Byron is "; // fact is of type `String`
+const tail = " years old"; // tail is of type `String`
+const age = 5; // age is of type `Number`
 
-fact + age + tail #=> TypeError (no implicit conversion of Integer into String)
+fact + age + tail; //=> "Byron is 5 years old"
 ```
 
-Ruby is not sure whether you want to add like an `Integer` (stored in `age`) or
-add like `String`s contained in `fact` and `tail`! If you need to do this, you
-should use the `to_s` method on data (like `5`) **OR** use the interpolation
-operator `#{}` which, as we said earlier, does the calculation and converts the
-result to a `String` automatically.
+If we were to try this in Ruby or Python, we would get an error, but JavaScript returns what it *thinks* we meant to do. While in this case this seems pretty reasonable, there are times when JavaScript's behavior will yield unexpected results. For this reason, best practice is **not** to depend on JavaScript to handle mixed data types in this way. A better way to handle this situation is by using interpolation instead:
 
-```ruby
-fact = "Byron is "
-tail = " years old"
-age = 5
+```js
+const fact = "Byron is"; 
+const tail = "years old"; 
+const age = 5; 
 
-fact + age.to_s + tail  #=> "Byron is 5 years old"
-"#{fact} #{age} #{tail}" #=> "Byron is 5 years old"
+`${fact} ${age} ${tail}`; //=> "Byron is 5 years old"
 ```
 
-Most data types feature a _method_ called `.to_s` ("to `String`") which turns
-them into a `String`. Once a non-`String` is converted to a `String`, it can
-be joined with `+` to another `String`.
+Here, by using backticks and the interpolation operator, we are explicitly telling JavaScript to _interpret_ the expression inside the `${}`, convert it to a string (if necessary), and insert it into our String.
 
-You might still be unclear on what a "method" is. You might remember the
-`.class` method we introduced when we were talking about type in an earlier lesson. For
-now, think of methods as "commands" you can ask values to do in Ruby.
+Another alternative is to use JavaScript's `toString()` method:
+
+```js
+const fact = "Byron is "; // fact is of type `String`
+const tail = " years old"; // tail is of type `String`
+const age = 5; // age is of type `Number`
+
+fact + age.toString() + tail; //=> "Byron is 5 years old"
+```
+
+## When to Use `+` vs. `${}`
+
+The choice of whether to use `+` or interpolation is, to a certain extent, a matter of personal preference &mdash; you can accomplish what you need to using either method. That said, however, JavaScript programmers tend to use interpolation more often than `+`. As you gain experience working with strings, you may find that using interpolation results in cleaner code that's easier to read. As a general rule, if the string you're constructing is simple and short, using `+` may be cleaner but, with more complex strings, you may want to consider using interpolation.
 
 ## Conclusion
 
-With mastery of `String`, we can use the expressions we've learned thus far to
-make interesting programs using only expressions. We're going to provide an
-example in the next lesson.
+In this lesson, we learned how to declare `String`s, how to interpolate the value of expressions into `String`s, how to use different quote delimiters and escaping to create more complicated `String`s, and a couple different methods for joining `String`s.
