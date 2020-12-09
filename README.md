@@ -12,7 +12,7 @@
 Thus far in programming as conversation, we've used numbers as data most of the
 time. Numbers are great because they reach across languages and cultures. But
 there are times when we need our programs to return information in the form of
-text. In this lesson we'll learn more about using text (i.e. `String`s) in our
+text. In this lesson, we'll learn more about using text (i.e. `String`s) in our
 JavaScript expressions.
 
 ## Recognize How to Declare a `String`
@@ -48,7 +48,7 @@ String _interpolation_ is the process of injecting the value of an expression (o
 
 The _interpolation operator_ looks like this: `${}`. When it appears in a backtick-delimited `String`, the return value of the expression inside the operator is "plugged in" to the containing `String`.
 
-In a single or double-quoted `String` there is no interpolation possible. JavaScript would not interpret the value inside the `${}`; it would instead create a literal string containing the operator and whatever expression is inside it.
+In a single or double-quoted `String` there is no interpolation possible. JavaScript would not interpret the value inside the `${}`; instead, it would create a literal string containing the operator and whatever expression is inside it.
 
 ```js
 const barkCount = 3
@@ -92,7 +92,7 @@ literal,  letter-like character `"`.
 
 But oh my goodness, what if the speaker said `Don't` instead of `Do not`.  That would break our `String` _again_ as JavaScript attempted to use the `'` inside `Don't` as the closing delimiter.
 
-Sometimes we need to tell JavaScript "Don't use this `'` or `"` as a `String` delimiter. To do this we need _escaping_.
+Sometimes we need to tell JavaScript, "Don't use this `'` or `"` as a `String` delimiter. To do this we need _escaping_.
 
 We can "escape" the power of `"` or `'` to close a `String` by putting a `\` in front of it:
 
@@ -167,7 +167,7 @@ fact + age.toString() + tail; //=> "Byron is 5 years old"
 
 ## When to Use `+` vs. `${}`
 
-The choice of whether to use `+` or interpolation is, to a certain extent, a matter of personal preference &mdash; you can accomplish what you need to using either method. That said, however, JavaScript programmers tend to use interpolation more often than `+`. As you gain experience working with strings, you may find that using interpolation results in cleaner code that's easier to read. As a general rule, if the string you're constructing is simple and short, using `+` may be cleaner but, with more complex strings, you may want to consider using interpolation.
+The choice of whether to use `+` or interpolation is, to a certain extent, a matter of personal preference &mdash; you can accomplish what you need to using either method. That said, however, JavaScript programmers tend to use interpolation more often than `+`. As you gain experience working with strings, you may find that using interpolation results in cleaner code that's easier to read. As a general rule, if the string you're constructing is simple and short, using `+` may be cleaner but you may want to consider using interpolation with more complex strings.
 
 ## Conclusion
 
