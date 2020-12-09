@@ -20,7 +20,7 @@ JavaScript expressions.
 We declare `String`s most often by enclosing our text in double quotes:
 
 ```js
-let greeting = "Hello, folks";
+const greeting = "Hello, folks";
 ```
 
 The letters inside of a `String` are often called "characters."
@@ -31,13 +31,13 @@ boundary or _limit_ around the characters that make up the `String`.
 We can also declare `String`s by putting the characters in single quotes:
 
 ```js
-let greeting = 'Hello, folks';
+const greeting = 'Hello, folks';
 ```
 
 or backticks:
 
 ```js
-let greeting = `Hello, folks`;
+const greeting = `Hello, folks`;
 ```
 
 Single quotes and double quotes can be used interchangeably in JavaScript &mdash; they are treated the same. Using backticks to enclose a string, however, brings some additional capabilities. A string enclosed in backticks forms a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), which allows you to _interpolate_ data into the `String`.
