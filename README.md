@@ -108,9 +108,7 @@ It doesn't find an unescaped `'` until the very end, just like we want.
 
 We already know that we can use `+` as an arithmetical operator to add two `Number`s together. But we can also use it as a `String` operator: when placed between two `String`s, it joins them and returns a ***new*** `String`.
 
-You can use the REPL below to code along with this example and experiment.
-
-<iframe height="400px" width="100%" src="https://repl.it/@LizBurton/JuvenileWorldlyJava?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+You may want to follow along with the examples in [repl.it](https://repl.it/languages/javascript).
 
 ```js
 const firstName = "Byronius";
