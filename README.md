@@ -40,7 +40,7 @@ or backticks:
 const greeting = `Hello, folks`;
 ```
 
-Single quotes and double quotes can be used interchangeably in JavaScript &mdash; they are treated the same. Using backticks to enclose a string, however, brings some additional capabilities. A string enclosed in backticks forms a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), which allows you to _interpolate_ data into the `String`.
+Single quotes and double quotes can be used interchangeably in JavaScript — they are treated the same. Using backticks to enclose a string, however, brings some additional capabilities. A string enclosed in backticks forms a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), which allows you to _interpolate_ data into the `String`.
 
 ## Define _interpolation_
 
@@ -86,7 +86,7 @@ const littleWomanEsque = '"Wait," said Jo, "Do not go without me!"'
 ```
 
 Because the opening delimiter of the `String` was `'`, JavaScript will "close" the
-`String` at the next `'` &mdash; at the very end. Inside of the single quotes, the
+`String` at the next `'` — at the very end. Inside of the single quotes, the
 `"` loses its meaning of "here's a `String`" and, instead, is just a plain
 literal,  letter-like character `"`.
 
@@ -165,7 +165,7 @@ fact + age.toString() + tail; //=> "Byron is 5 years old"
 
 ## When to Use `+` vs. `${}`
 
-The choice of whether to use `+` or interpolation is, to a certain extent, a matter of personal preference &mdash; you can accomplish what you need to using either method. That said, however, JavaScript programmers tend to use interpolation more often than `+`. As you gain experience working with strings, you may find that using interpolation results in cleaner code that's easier to read. As a general rule, if the string you're constructing is simple and short, using `+` may be cleaner but you may want to consider using interpolation with more complex strings.
+The choice of whether to use `+` or interpolation is, to a certain extent, a matter of personal preference — you can accomplish what you need to using either method. That said, however, JavaScript programmers tend to use interpolation more often than `+`. As you gain experience working with strings, you may find that using interpolation results in cleaner code that's easier to read. As a general rule, if the string you're constructing is simple and short, using `+` may be cleaner but you may want to consider using interpolation with more complex strings.
 
 ## Conclusion
 
