@@ -66,16 +66,16 @@ inside it.
 
 ```js
 const barkCount = 3;
-const backtick = `Byron barks ${barkCount} times`; //=> "Byron barks 3 times"
-const singleQuote = 'Byron barks ${barkCount} times'; //=> "Byron barks ${barkCount} times"
-const doubleQuote = "Byron barks ${barkCount} times"; //=> "Byron barks ${barkCount} times"
+const backtick = `Spinach barks ${barkCount} times`; //=> "Spinach barks 3 times"
+const singleQuote = 'Spinach barks ${barkCount} times'; //=> "Spinach barks ${barkCount} times"
+const doubleQuote = "Spinach barks ${barkCount} times"; //=> "Spinach barks ${barkCount} times"
 ```
 
 The expression inside the `${}` does not need to be a variable lookup. Any
 expression, i.e., any statement that returns a value, can be used:
 
 ```js
-const byron = `Byron is ${2 + 3} years old`; //=> "Byron is 5 years old"
+const spinach = `Spinach is ${2 + 3} years old`; //=> "Spinach is 5 years old"
 ```
 
 Here JavaScript knows to interpret the value inside the interpolation operator
@@ -143,22 +143,22 @@ You may want to follow along with the examples in
 [repl.it](https://repl.it/languages/javascript).
 
 ```js
-const firstName = "Byronius";
+const firstName = "Spinachius";
 const clanName = "Karbitus";
 const commonName = "Maris";
 let fullName;
 
 // With +
-fullName = firstName + " " + clanName + " " + commonName; //=> "Byronius Karbitus Maris"
+fullName = firstName + " " + clanName + " " + commonName; //=> "Spinachius Karbitus Maris"
 
 // Or, with interpolation
-fullName = `${firstName} ${clanName} ${commonName}`; //=> "Byronius Karbitus Maris"
+fullName = `${firstName} ${clanName} ${commonName}`; //=> "Spinachius Karbitus Maris"
 
 // Keep in mind it returns a _new_ String; therefore:
-firstName; //=> "Byronius"
+firstName; //=> "Spinachius"
 clanName; //=> "Karbitus"
 commonName; //=> "Maris"
-fullName; //=> "Byronius Karbitus Maris"
+fullName; //=> "Spinachius Karbitus Maris"
 ```
 
 ### A Warning About Mixing Data Types
@@ -168,11 +168,11 @@ programming languages, will bend over backwards to return a value instead of
 throwing a type error. This means that the following will work in JavaScript:
 
 ```js
-const fact = "Byron is "; // fact is of type `String`
+const fact = "Spinach is "; // fact is of type `String`
 const tail = " years old"; // tail is of type `String`
 const age = 5; // age is of type `Number`
 
-fact + age + tail; //=> "Byron is 5 years old"
+fact + age + tail; //=> "Spinach is 5 years old"
 ```
 
 If we were to try this in Ruby or Python, we would get an error, but JavaScript
@@ -183,11 +183,11 @@ handle mixed data types in this way. A better way to handle this situation is by
 using interpolation instead:
 
 ```js
-const fact = "Byron is";
+const fact = "Spinach is";
 const tail = "years old";
 const age = 5;
 
-`${fact} ${age} ${tail}`; //=> "Byron is 5 years old"
+`${fact} ${age} ${tail}`; //=> "Spinach is 5 years old"
 ```
 
 Here, by using backticks and the interpolation operator, we are explicitly
@@ -197,11 +197,11 @@ a string (if necessary), and insert it into our String.
 Another alternative is to use JavaScript's `toString()` method:
 
 ```js
-const fact = "Byron is "; // fact is of type `String`
+const fact = "Spinach is "; // fact is of type `String`
 const tail = " years old"; // tail is of type `String`
 const age = 5; // age is of type `Number`
 
-fact + age.toString() + tail; //=> "Byron is 5 years old"
+fact + age.toString() + tail; //=> "Spinach is 5 years old"
 ```
 
 ## When to Use `+` vs. `${}`
