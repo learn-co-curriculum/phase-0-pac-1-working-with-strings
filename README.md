@@ -140,7 +140,7 @@ We already know that we can use `+` as an arithmetical operator to add two
 between two `String`s, it joins them and returns a **_new_** `String`.
 
 You may want to follow along with the examples in
-[repl.it](https://repl.it/languages/javascript).
+[replit](https://replit.com/languages/javascript).
 
 ```js
 const firstName = "Spinachius";
