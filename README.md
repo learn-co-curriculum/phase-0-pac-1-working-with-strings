@@ -142,7 +142,7 @@ between two `String`s, it joins them and returns a **_new_** `String`.
 You may want to follow along with the examples in
 [replit](https://replit.com/languages/javascript). Remember to use the console
 window (the one on the right), and that, if you get an error, you can "reset"
-the console by clicking the play button.
+the console by clicking the run button.
 
 ```js
 const firstName = "Spinachius";
